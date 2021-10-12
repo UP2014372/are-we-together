@@ -6,3 +6,6 @@ if __name__ == "__main__":
 
     for person in people:
         print(person.get_lectures("Wednesday"))
+
+    # TODO: find out who has the same lectures and group them together
+    #       then generate a string based on this!
