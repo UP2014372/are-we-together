@@ -1,6 +1,11 @@
-import parse_data
+from parse_data import get_files, parse_files
+from algorithm import build_dataframe, group_names
 
 if __name__ == "__main__":
-    calendars = parse_data.get_files()
-    people = parse_data.parse_files(calendars)
+    calendars = get_files()
+    people = parse_files(calendars)
     days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+
+    df = build_dataframe(people)
+    df = group_names(df)
+    print(df)

@@ -6,28 +6,32 @@ people = parse_data.parse_files(calendars)
 days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
 
-frames = []
-for person in people:
-    frames.append(pd.DataFrame(person).dropna())
+def build_dataframe(elements: list):
+    frames = []
+    for element in elements:
+        frames.append(pd.DataFrame(element).dropna())
 
-df = pd.concat(frames)
-df.reset_index(inplace=True, drop=True)
+    df = pd.concat(frames)
+    df.reset_index(inplace=True, drop=True)
+    return df
 
-lectures = []
-for day in days:
-    i = df.loc[df["day"] == day]
-    lectures.append(
-        i.groupby(["day", "start", "end", "Unit"], as_index=False).agg(
-            {"name": " ".join}
+
+def group_names(df: pd.DataFrame):
+    lectures = []
+    for day in days:
+        i = df.loc[df["day"] == day]
+        lectures.append(
+            i.groupby(["day", "start", "end", "Unit"], as_index=False).agg(
+                {"name": " ".join}
+            )
         )
-    )
+    lectures = pd.concat(lectures).reset_index(drop=True)
 
-del df["name"]
-df = df.drop_duplicates(["day", "start", "end", "Group", "Building"])
-lectures = pd.concat(lectures).reset_index(drop=True)
+    del df["name"]
+    df = df.drop_duplicates(["day", "start", "end", "Group", "Building"])
 
-df["day"] = pd.Categorical(df["day"], categories=days, ordered=True)
-df = df.sort_values("day").reset_index(drop=True)
+    df["day"] = pd.Categorical(df["day"], categories=days, ordered=True)
+    df = df.sort_values("day").reset_index(drop=True)
 
-
-df.merge(lectures)
+    df = df.merge(lectures)
+    return df
