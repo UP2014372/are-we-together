@@ -1,4 +1,4 @@
-# are-we-together (in the same lecture?)
+# 🎶 are-we-together (in the same lecture?) 🎶
 
 ## Table of Contents
 
