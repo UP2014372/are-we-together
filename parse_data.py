@@ -1,7 +1,7 @@
 import datetime
 import os
 import icalendar
-from person import Person
+import pandas as pd
 
 
 def get_files():
@@ -43,11 +43,13 @@ def parse_files(calendars):
                 same = same_week(component_date, datetime.date.today())
 
             if component.name == "VEVENT" and same:
-                lecture = parse_description(component.get("description"))
+                lecture["name"] = calendar["name"]
                 lecture["day"] = component.get("dtstart").dt.strftime("%A")
-                lecture["start-time"] = component.get("dtstart").dt.time()
-                lecture["end-time"] = component.get("dtend").dt.time()
+                lecture["start"] = component.get("dtstart").dt.time()
+                lecture["end"] = component.get("dtend").dt.time()
+                parsed = parse_description(component.get("description"))
+                lecture = dict(list(lecture.items()) + list(parsed.items()))
             weekly_lectures.append(lecture)
-        people.append(Person(calendar["name"], weekly_lectures))
+        people.append(weekly_lectures)
 
     return people
