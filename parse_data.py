@@ -1,7 +1,6 @@
 import datetime
 import os
 import icalendar
-import pandas as pd
 
 
 def get_files():
