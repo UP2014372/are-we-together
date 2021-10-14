@@ -1,5 +1,9 @@
 import parse_data
 import pandas as pd
+from parse_data import get_files, parse_files
+from algorithm import build_dataframe, group_names
+import pandas as pd
+import pyperclip
 
 calendars = parse_data.get_files()
 people = parse_data.parse_files(calendars)
@@ -18,20 +22,20 @@ def build_dataframe(elements: list):
 
 def group_names(df: pd.DataFrame):
     lectures = []
-    for day in days:
-        i = df.loc[df["day"] == day]
+    for Day in days:
+        i = df.loc[df["Day"] == Day]
         lectures.append(
-            i.groupby(["day", "start", "end", "Unit"], as_index=False).agg(
-                {"name": " ".join}
+            i.groupby(["Day", "Start", "End", "Unit"], as_index=False).agg(
+                {"Names": " ".join}
             )
         )
     lectures = pd.concat(lectures).reset_index(drop=True)
 
-    del df["name"]
-    df = df.drop_duplicates(["day", "start", "end", "Group", "Building"])
+    del df["Names"]
+    df = df.drop_duplicates(["Day", "Start", "End", "Group", "Building"])
 
-    df["day"] = pd.Categorical(df["day"], categories=days, ordered=True)
-    df = df.sort_values("day").reset_index(drop=True)
+    df["Day"] = pd.Categorical(df["Day"], categories=days, ordered=True)
+    df = df.sort_values("Day").reset_index(drop=True)
 
     df = df.merge(lectures)
     return df

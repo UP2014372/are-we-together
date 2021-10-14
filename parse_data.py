@@ -42,10 +42,10 @@ def parse_files(calendars):
                 same = same_week(component_date, datetime.date.today())
 
             if component.name == "VEVENT" and same:
-                lecture["name"] = calendar["name"]
-                lecture["day"] = component.get("dtstart").dt.strftime("%A")
-                lecture["start"] = component.get("dtstart").dt.time()
-                lecture["end"] = component.get("dtend").dt.time()
+                lecture["Names"] = calendar["name"]
+                lecture["Day"] = component.get("dtstart").dt.strftime("%A")
+                lecture["Start"] = component.get("dtstart").dt.time()
+                lecture["End"] = component.get("dtend").dt.time()
                 parsed = parse_description(component.get("description"))
                 lecture = dict(list(lecture.items()) + list(parsed.items()))
             weekly_lectures.append(lecture)

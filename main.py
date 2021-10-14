@@ -8,4 +8,5 @@ if __name__ == "__main__":
 
     df = build_dataframe(people)
     df = group_names(df)
+    string = ""
     print(df)
