@@ -1,4 +1,3 @@
-import parse_data
 import pandas as pd
 
 
