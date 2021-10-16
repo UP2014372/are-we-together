@@ -13,6 +13,8 @@ This inspired me to find a way of working out who is in the same lectures, hence
 
 For now simply run `main.py`
 
+If you want to understand the structure of the DataFrame then have a look at [`development.ipynb`](https://github.com/UP2014372/are-we-together/blob/master/development.ipynb).
+
 **TODO**: implement flags for different week dates
 ### Prerequisites
 
