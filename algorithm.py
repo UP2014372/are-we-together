@@ -1,7 +1,5 @@
 import parse_data
 import pandas as pd
-import pandas as pd
-import pyperclip
 
 calendars = parse_data.get_files()
 people = parse_data.parse_files(calendars)
