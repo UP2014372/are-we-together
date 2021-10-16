@@ -8,7 +8,7 @@ pd.options.mode.chained_assignment = None
 if __name__ == "__main__":
     calendars = get_files()
     people = parse_files(calendars)
-    days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"]
 
     df = build_dataframe(people)
     df = group_names(df)
