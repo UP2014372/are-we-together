@@ -1,7 +1,7 @@
-from parse_data import get_files, parse_files, pretty_lecture
-from algorithm import build_dataframe, group_names
 import pandas as pd
 import pyperclip
+from parse_data import get_files, parse_files, pretty_lecture
+from algorithm import build_dataframe, group_names
 
 pd.options.mode.chained_assignment = None
 
