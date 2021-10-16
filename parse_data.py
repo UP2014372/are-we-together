@@ -3,7 +3,7 @@ import os
 import icalendar
 
 
-def get_files():
+def get_files() -> list:
     calendars = []
     for _, _, files in os.walk("people/"):
         for file in files:
@@ -16,7 +16,7 @@ def get_files():
     return calendars
 
 
-def parse_description(description: str):
+def parse_description(description: str) -> dict:
     details = {}
     key_value = description.split("\n")
     for i in key_value:
@@ -29,7 +29,7 @@ def same_week(d1, d2):
     return d1.isocalendar()[1] == d2.isocalendar()[1] and d1.year == d2.year
 
 
-def parse_files(calendars):
+def parse_files(calendars) -> list:
     people = []
     for calendar in calendars:
         weekly_lectures = []
@@ -52,3 +52,21 @@ def parse_files(calendars):
         people.append(weekly_lectures)
 
     return people
+
+
+def pretty_lecture(lecture) -> list:
+    output = (
+        "\n"
+        "**Module**: " + lecture.Unit + "\n"
+        "**Type**: " + lecture.Type + "\n"
+        "**Lecturer**: " + lecture.Lecturer + "\n"
+        "**Start**: " + lecture.Start.strftime("%H:%M") + "\n"
+        "**End**: " + lecture.End.strftime("%H:%M") + "\n"
+        "**Group**: " + lecture.Group + "\n"
+        "**Building**: " + (lecture.Building if lecture.Building else "N/A") + "\n"
+        "**Room**: " + (lecture.Room if lecture.Room else "N/A") + "\n"
+        "**People**: `"
+        + ", ".join(map(lambda name: name.capitalize(), lecture.Names.split(" ")))
+        + "`\n"
+    )
+    return output
