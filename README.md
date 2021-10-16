@@ -1,42 +1,28 @@
-# 🎶 are-we-together (in the same lecture?) 🎶
+# 📅 are-we-together (in the same lecture?) 🎶
 
-## Table of Contents
-
-- [About](#about)
-- [Getting Started](#getting_started)
-- [Usage](#usage)
-- [Contributing](../CONTRIBUTING.md)
 
 ## About <a name = "about"></a>
 
-Write about 1-2 paragraphs describing the purpose of your project.
+With the start of the new academic year, I have finally been able to attend physical lectures for the first time ever. On our course we are surprisingly not all together in the same lectures (despite there being 7 of us). 
+
+This combined with the fact that some of us have our lectures before others makes talking about current work slightly confusing. 
+
+This inspired me to find a way of working out who is in the same lectures, hence `are-we-together`.
 
 ## Getting Started <a name = "getting_started"></a>
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+For now simply run `main.py`
 
+**TODO**: implement flags for different week dates
 ### Prerequisites
 
-(((add more but for now install from requirements)))
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
-
+All requirements are able to be installed via the `requirements.txt` file as shown below:
+```bash
+pip install -r requirements.txt
 ```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo.
-
 ## Usage <a name = "usage"></a>
 
-Add notes about how to use the system.
+After running the script all output will be copied to your clipboard, simply paste as desired. 
+
+If you are pasting into Discord then I would recommend [this plugin](https://betterdiscord.app/plugin/SplitLargeMessages). 
+All it does is split a message that exceeds the character limit into multiple messages, to be used with [BetterDiscord](https://betterdiscord.app).
