@@ -9,7 +9,6 @@ This combined with the fact that some of us have our lectures before others make
 
 This inspired me to find a way of working out who is in the same lectures, hence `are-we-together`.
 
----
 ## Getting Started <a name = "getting_started"></a>
 
 ### Prerequisites
@@ -21,7 +20,6 @@ pip install -r requirements.txt
 
 If you want to understand the structure of the DataFrame then have a look at [`development.ipynb`](https://github.com/UP2014372/are-we-together/blob/master/development.ipynb).
 
----
 ## Usage 
 ```python
 usage: arewetogether.py [-h] (-f FILE [FILE ...] | -p PATH) [-o OUTPUT]
