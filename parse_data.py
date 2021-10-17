@@ -65,8 +65,10 @@ def pretty_lecture(lecture) -> list:
         "**Group**: " + lecture.Group + "\n"
         "**Building**: " + (lecture.Building if lecture.Building else "N/A") + "\n"
         "**Room**: " + (lecture.Room if lecture.Room else "N/A") + "\n"
-        "**People**: `"
-        + ", ".join(map(lambda name: name.capitalize(), lecture.Names.split(" ")))
-        + "`\n"
+        "**People**: `" + format_names(lecture.Names) + "`\n"
     )
     return output
+
+
+def format_names(names):
+    return ", ".join(map(lambda name: name.capitalize(), names.split(" ")))
