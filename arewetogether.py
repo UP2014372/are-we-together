@@ -42,15 +42,16 @@ def main(args):
 
 def parse_args():
     parser = argparse.ArgumentParser()
+    group = parser.add_mutually_exclusive_group(required=True)
 
-    parser.add_argument(
+    group.add_argument(
         "-f",
         "--file",
         type=argparse.FileType("r"),
         nargs="+",
         help="File names to be used",
     )
-    parser.add_argument(
+    group.add_argument(
         "-p",
         "--path",
         type=check_path,
