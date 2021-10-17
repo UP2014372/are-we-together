@@ -3,17 +3,28 @@ import os
 import icalendar
 
 
-def get_files() -> list:
-    calendars = []
-    for _, _, files in os.walk("people/"):
+def get_dirfiles(path) -> list:
+    dirfiles = []
+
+    if not path:
+        return []
+
+    for _, _, files in os.walk(path):
         for file in files:
-            filename, extension = os.path.splitext(file)
+            _, extension = os.path.splitext(file)
             if extension == ".ics":
-                icalfile = open(f"people/{file}", "rb")
-                gcal = icalendar.Calendar.from_ical(icalfile.read())
-                calendars.append({"name": filename, "data": gcal})
-                icalfile.close()
-    return calendars
+                i = open(f"{path}/{file}", "rb")
+                dirfiles.append(i)
+    return dirfiles
+
+
+def files_to_calendar(files: list) -> list:
+    converted = []
+    for file in files:
+        gcal = icalendar.Calendar.from_ical(file.read())
+        converted.append({"name": file.name, "data": gcal})
+        file.close()
+    return converted
 
 
 def parse_description(description: str) -> dict:
