@@ -9,20 +9,32 @@ This combined with the fact that some of us have our lectures before others make
 
 This inspired me to find a way of working out who is in the same lectures, hence `are-we-together`.
 
+---
 ## Getting Started <a name = "getting_started"></a>
 
-For now simply run `main.py`
-
-If you want to understand the structure of the DataFrame then have a look at [`development.ipynb`](https://github.com/UP2014372/are-we-together/blob/master/development.ipynb).
-
-**TODO**: implement flags for different week dates
 ### Prerequisites
 
 All requirements are able to be installed via the `requirements.txt` file as shown below:
 ```bash
 pip install -r requirements.txt
 ```
-## Usage <a name = "usage"></a>
+
+If you want to understand the structure of the DataFrame then have a look at [`development.ipynb`](https://github.com/UP2014372/are-we-together/blob/master/development.ipynb).
+
+---
+## Usage 
+```python
+usage: arewetogether.py [-h] (-f FILE [FILE ...] | -p PATH) [-o OUTPUT]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -f FILE [FILE ...], --file FILE [FILE ...]
+                        File names to be used
+  -p PATH, --path PATH  Path to directory containing calendar files
+  -o OUTPUT, --output OUTPUT
+                        File to output to (destructive), omit to copy to clipboard
+```
+
 
 After running the script all output will be copied to your clipboard, simply paste as desired. 
 
