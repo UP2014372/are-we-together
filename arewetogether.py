@@ -71,7 +71,7 @@ def parse_args():
         const="current",
         nargs="?",
         help="One of 'current', 'next', or a date the week falls in of form (dd-mm-yy). Defaults to 'current'",
-    )
+    )  # TODO: Implement logic for choosing the week
 
     args = parser.parse_args()
     if len(sys.argv) == 1:
