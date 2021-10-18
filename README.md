@@ -1,5 +1,6 @@
 # 📅 are-we-together (in the same lecture?) 🎶
 
+<img src="https://raw.githubusercontent.com/UP2014372/are-we-together/master/preview.gif">
 
 ## About <a name = "about"></a>
 
