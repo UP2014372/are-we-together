@@ -65,6 +65,14 @@ def parse_args():
         help="File to output to (destructive), omit to copy to clipboard",
     )
 
+    parser.add_argument(
+        "-w",
+        "--week",
+        const="current",
+        nargs="?",
+        help="One of 'current', 'next', or a date the week falls in of form (dd-mm-yy). Defaults to 'current'",
+    )
+
     args = parser.parse_args()
     if len(sys.argv) == 1:
         parser.print_help()
